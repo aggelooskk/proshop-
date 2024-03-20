@@ -29,7 +29,7 @@ const productSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      required: false, // ** BUG ** change it from true to false 
+      required: true,
       ref: "User",
     },
     name: {

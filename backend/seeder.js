@@ -19,10 +19,11 @@ const importData = async () => {
     await User.deleteMany();
 
     const createdUsers = await User.insertMany(users);
+    console.log("Created Users ", createdUsers);
     const adminUser = createdUsers[0]._id; // get the first user as admin user
 
     const sampleProducts = products.map((product) => {
-      return { ...product, users: adminUser };
+      return { ...product, user: adminUser };
     });
 
     await Product.insertMany(sampleProducts);
