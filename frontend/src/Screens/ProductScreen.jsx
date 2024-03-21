@@ -80,7 +80,7 @@ const ProductScreen = () => {
                 <Button
                   className="btn-block"
                   type="button"
-                  diasbled={product?.countInStock === 0}
+                  disabled={product?.countInStock === 0}
                 >
                   Add To Cart
                 </Button>

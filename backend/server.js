@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/products", productRoutes);
 
+// Error handling middleware
 app.use(notFound);
 app.use(errorHandler);
 
