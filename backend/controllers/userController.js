@@ -1,5 +1,6 @@
 import asyncHandler from "../middleware/asyncHandler.js";
 import User from "../models/UserModel.js";
+import generateToken from "../utlis/generateToken.js";
 
 // @desc auth user & get token
 // @route POST /api/users/login
@@ -10,6 +11,8 @@ const authUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
+    generateToken(res, user._id);
+
     res.json({
       _id: user._id,
       name: user.name,
@@ -26,7 +29,34 @@ const authUser = asyncHandler(async (req, res) => {
 // @route POST /api/users/
 // @access Public
 const registerUser = asyncHandler(async (req, res) => {
-  res.send("register user");
+  const { name, email, password } = req.body;
+
+  const userExists = await User.findOne({ email });
+
+  if (userExists) {
+    res.status(400);
+    throw new Error("User already exists");
+  }
+
+  const user = await User.Create({
+    name,
+    email,
+    password,
+  });
+
+  if (user) {
+    generateToken(res, user._id);
+
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      password: user.isAdmin,
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid user data");
+  }
 });
 
 // @desc logout user / clear cookie
@@ -40,7 +70,11 @@ const logoutrUser = asyncHandler(async (req, res) => {
 // @route GET /api/users/
 // @access Private
 const getUserProfile = asyncHandler(async (req, res) => {
-  res.send("get user profile");
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    expires: new Date(0),
+  });
+  res.status(200).json({ message: "Logged out succesfully" });
 });
 
 // @desc Get users
