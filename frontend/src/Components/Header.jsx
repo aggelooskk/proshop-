@@ -10,8 +10,8 @@ const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
 
   const logoutHandler = () => {
-    console.log('logoutHandler');
-  }
+    console.log("logoutHandler");
+  };
 
   return (
     <header>
