@@ -3,7 +3,7 @@ import { Navbar, Nav, Badge, Container, NavDropdown } from "react-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { LinkContainer } from "react-router-bootstrap";
 import { useSelector } from "react-redux";
-import logo from "/Users/aggelosk/Desktop/Proshop/frontend/src/assets/logo.old.png";
+import logo from "../assets/logo.old.png";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);

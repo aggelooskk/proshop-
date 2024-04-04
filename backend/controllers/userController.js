@@ -1,6 +1,7 @@
 import asyncHandler from "../middleware/asyncHandler.js";
-import User from "../models/UserModel.js";
+import User from "../models/userModel.js"
 import generateToken from "../utlis/generateToken.js";
+
 
 // @desc auth user & get token
 // @route POST /api/users/login
@@ -21,7 +22,7 @@ const authUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(401);
-    throw new Error("Invalin Email or Password");
+    throw new Error("Invalid Email or Password");
   }
 });
 
