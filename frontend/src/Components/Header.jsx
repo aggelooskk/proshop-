@@ -5,7 +5,7 @@ import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { LinkContainer } from "react-router-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../slices/usersApiSlice";
-import logout from "../slices/authSlice";
+import { logout } from "../slices/authSlice";
 import logo from "../assets/logo.old.png";
 
 const Header = () => {
