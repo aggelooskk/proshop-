@@ -49,7 +49,7 @@ const OrderScreen = () => {
         paypalDispatch({
           type: "resetOptions",
           value: {
-            "clientId": paypal.clientId,
+            "client-id": paypal.clientId,
             currency: "USD",
           },
         });
@@ -194,12 +194,12 @@ const OrderScreen = () => {
                       <Loader />
                     ) : (
                       <div>
-                        <Button
+                      {/*}  <Button
                           onClick={onApproveTest}
                           style={{ marginBottom: "10px" }}
                         >
                           Test pay order
-                        </Button>
+                        </Button> */}
                         <div>
                           <PayPalButtons
                             createOrder={createOrder}
