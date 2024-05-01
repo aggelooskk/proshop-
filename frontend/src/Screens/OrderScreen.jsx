@@ -39,7 +39,7 @@ const OrderScreen = () => {
     data: paypal,
     isLoading: loadingPaypal,
     error: errorPaypal,
-  } = useGetOrderDetailsQuery();
+  } = useGetPaypalClientIdQuery();
 
   const { userInfo } = useSelector((state) => state.auth);
 
