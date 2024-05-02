@@ -5,7 +5,6 @@ import {
   Col,
   ListGroup,
   Image,
-  Form,
   Button,
   Card,
   ListGroupItem,
@@ -79,11 +78,14 @@ const OrderScreen = () => {
     });
   }
 
+  
+{/*
   async function onApproveTest() {
     await payOrder({ orderId, details: { payer: {} } });
     refetch();
     toast.success("Payment Succesful");
   }
+*/}
 
   function onError(err) {
     toast.error(err.message);
