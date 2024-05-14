@@ -175,7 +175,7 @@ const ProductScreen = () => {
                   <ListGroupItem key={review._id}>
                     <strong>{review.name}</strong>
                     <Rating value={review.rating} />
-                    <p>{review.createdAt.substring(0, 100)}</p>
+                    <p>{review.createdAt.substring(0, 10)}</p>
                     <p>{review.comment}</p>
                   </ListGroupItem>
                 ))}
