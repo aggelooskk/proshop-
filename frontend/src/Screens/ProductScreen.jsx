@@ -19,6 +19,7 @@ import { toast } from "react-toastify";
 import Rating from "../Components/Rating";
 import Loader from "../Components/Loader";
 import Message from "../Components/Message";
+import Meta from "../Components/Meta";
 import {
   useGetProductDetailsQuery,
   useCreateReviewMutation,
@@ -83,6 +84,7 @@ const ProductScreen = () => {
         </Message>
       ) : (
         <>
+          <Meta title={product.name} />
           <Row>
             <Col md={5}>
               <Image src={product?.image} alt={product?.name} fluid />
